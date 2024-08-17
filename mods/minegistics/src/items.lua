@@ -91,7 +91,7 @@ RecipiesInStructure = {
         ["minegistics:iron_lump"] = {"minegistics:iron_ingot", "minegistics:mechanical_parts"},
         ["minegistics:copper_lump"] = {"minegistics:copper_ingot", "minegistics:copper_wire"},
         ["minegistics:steel_lump"] = {"minegistics:building_materials", "minegistics:steel_ingot"},
-        ["minegistics:ash"] = {"minegistics:potash", "minegistics:lye"}
+        ["minegistics:ash_product"] = {"minegistics:potash", "minegistics:lye"}
     }
 }
 
@@ -125,7 +125,7 @@ Item_worth = {
 
 -- Register Craftitems
 
-minetest.register_craftitem("minegistics:ash", {
+minetest.register_craftitem("minegistics:ash_product", {
     description = (""),
     inventory_image = "ash_product.png"
 })

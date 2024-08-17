@@ -108,17 +108,15 @@ minetest.register_abm({
 				local items = {}
 				local working = false
 				for input, output in pairs(RecipiesInStructure.Workshop) do
-					items[input] = ItemStack(input)
+					items[input] = output
 				end
 				local inventories = inv:get_lists()
 				for name, list in pairs(inventories) do
-					for index, item in pairs(items) do
-						while inv:contains_item(name, item) do
-							local item_name = item:get_name()
-							local product = Refinery_recipes[item_name]
-							local stack = ItemStack(product)
-							inv:remove_item(name, item)
-							inv:add_item("main", stack)
+					for input, output in pairs(items) do
+						while not working and inv:contains_item(name, input) do
+							inv:remove_item(name, input)
+							inv:add_item("output", output[1])
+							inv:add_item("output", output[2])
 							working = true
 						end
 					end

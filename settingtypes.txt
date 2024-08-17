@@ -5,3 +5,6 @@ minegistics_particles (Particle Effects) bool true
 #
 # Enables debug features
 minegistics_debug (Debug mode) bool false
+
+#Enables or disables Power Plants Require Fuel.
+minegistics_require_fuel (Power Plants Require Fuel) bool true
