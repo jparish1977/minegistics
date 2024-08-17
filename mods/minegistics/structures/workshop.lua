@@ -106,24 +106,35 @@ minetest.register_abm({
 				local meta = minetest.get_meta(pos)
 				local inv = meta:get_inventory()
 				local items = {}
+				-- Implements the solution mentioned by Kazooo100 on https://github.com/logalog42/minegistics/issues/38
+				-- Additionaly, limits it to processing 1 aitem at a time instead of the entire stack
 				local working = false
+				local product1 = {}
+				local product2 = {}
 				for input, output in pairs(RecipiesInStructure.Workshop) do
-					items[input] = output
+					items[input] = ItemStack(input)
+					product1[input] = ItemStack(output[1])
+					product2[input] = ItemStack(output[2])
+					print("product1 inoutpairs"..tostring(product1))
 				end
 				local inventories = inv:get_lists()
-				for invName, list in pairs(inventories) do
-					minetest.log("default", "invName: " .. invName)
-					for input, output in pairs(items) do
-						while not working and inv:contains_item(invName, input) do
-							local stack = ItemStack(input)
-							minetest.log("default", "Item Count: " .. stack:get_count())
-							inv:remove_item(invName, input)
-							inv:add_item("output", output[1])
-							inv:add_item("output", output[2])
+				for name, list in pairs(inventories) do
+					for index, item in pairs(items) do
+						while not working and inv:contains_item(name, item) do
+							local item_name = item:get_name()
+							local product1 = product1[item_name]
+							local stack1 = ItemStack(product1)
+							local product2 = product2[item_name]
+							local stack2 = ItemStack(product2)
+		
+							inv:remove_item(name, item)
+							inv:add_item("output", product1)
+							inv:add_item("output", product2)
 							working = true
 						end
 					end
 				end
+
 				if working then
 					minetest.sound_play("workshop", {
 						pos = pos,
