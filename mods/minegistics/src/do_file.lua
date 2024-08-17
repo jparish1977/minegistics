@@ -6,13 +6,14 @@
 ]]--
 
 local modpath = minetest.get_modpath("minegistics")
+dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "settings.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "power.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "items.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "hud.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "formspec.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "initial_items.lua")
 dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "welcome_message.lua")
-dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "jap.lua")
+dofile(modpath .. DIR_DELIM .. "src" .. DIR_DELIM .. "commands.lua")
 dofile(modpath .. DIR_DELIM .. "structures" .. DIR_DELIM .. "collector.lua")
 dofile(modpath .. DIR_DELIM .. "structures" .. DIR_DELIM .. "factory.lua")
 dofile(modpath .. DIR_DELIM .. "structures" .. DIR_DELIM .. "farm.lua")

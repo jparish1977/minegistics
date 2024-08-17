@@ -8,15 +8,6 @@
 local abm_timer = 0
 local background = "form_bg.png"
 
---[[
-DEBUG_MODE = minetest.settings:get_bool("minegistics_debug", false)
-local function print_table(t)
-	for k, v in pairs(t) do
-		minetest.chat_send_all(type(k) .. " : " .. tostring(k) .. " | " .. type(v) .. " : " .. tostring(v))
-	end
-end
---]]
-
 minetest.register_node("minegistics:Factory", {
 	description = "Factory: Combines products to create more advanced items.",
 	tiles = {"buildings.png"},

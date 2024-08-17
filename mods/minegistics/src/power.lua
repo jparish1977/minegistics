@@ -89,7 +89,7 @@ minetest.register_abm({
 			minetest.forceload_block(pos, false)
 			local meta = minetest.get_meta(pos)
 			local inv = meta:get_inventory()
-			local has_fuel = not minetest.settings:get_bool("minegistics_require_fuel", true)
+			local has_fuel = not REQUIRE_FUEL
 
 			if inv:contains_item("main", "minegistics:coal_lump") then
 				inv:remove_item("main", "minegistics:coal_lump")

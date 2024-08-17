@@ -111,10 +111,13 @@ minetest.register_abm({
 					items[input] = output
 				end
 				local inventories = inv:get_lists()
-				for name, list in pairs(inventories) do
+				for invName, list in pairs(inventories) do
+					minetest.log("default", "invName: " .. invName)
 					for input, output in pairs(items) do
-						while not working and inv:contains_item(name, input) do
-							inv:remove_item(name, input)
+						while not working and inv:contains_item(invName, input) do
+							local stack = ItemStack(input)
+							minetest.log("default", "Item Count: " .. stack:get_count())
+							inv:remove_item(invName, input)
 							inv:add_item("output", output[1])
 							inv:add_item("output", output[2])
 							working = true

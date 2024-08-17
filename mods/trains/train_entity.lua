@@ -11,7 +11,7 @@
 		corelate train sound to train speed
 ]]--
 
-DEBUG_MODE = minetest.settings:get_bool("minegistics_debug", false)
+-- DEBUG_MODE = minetest.settings:get_bool("minegistics_debug", false)
 local function print_table(t)
 	for k, v in pairs(t) do
 		minetest.chat_send_all(type(k) .. " : " .. tostring(k) .. " | " .. type(v) .. " : " .. tostring(v))

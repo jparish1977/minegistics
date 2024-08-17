@@ -1,8 +1,3 @@
---[[
-    Minegistics-JAP
-      Oldrot
-]]--
-
 minetest.register_chatcommand("toggle_fuel", {
     params = "",
     privs = { give = true },
