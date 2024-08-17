@@ -120,6 +120,7 @@ minetest.register_abm({
 				local inventories = inv:get_lists()
 				for name, list in pairs(inventories) do
 					for index, item in pairs(items) do
+						-- only let it work on one at a time
 						while not working and inv:contains_item(name, item) do
 							local item_name = item:get_name()
 							local product1 = product1[item_name]
